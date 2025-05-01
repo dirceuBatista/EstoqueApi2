@@ -2,6 +2,7 @@ using System.Text;
 using EstoqueApi;
 using EstoqueApi.Data;
 using EstoqueApi.Services;
+using EstoqueApi.Services.ControllerService;
 using EstoqueApi.Services.TokenService;
 using EstoqueApi.Services.UserServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -35,6 +36,7 @@ builder
         options.SuppressModelStateInvalidFilter = true;
     });
 builder.Services.AddTransient<TokenService>();
+builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<CustumerService>();
 builder.Services.AddScoped<TennisService>();
 builder.Services.AddScoped<SaleService>();

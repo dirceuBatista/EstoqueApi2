@@ -1,9 +1,11 @@
+using EstoqueApi.Attribuites;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EstoqueApi.Controllers;
 
 [ApiController]
-[Route("/")]
+
+[Route("")]
 public class HomeController : ControllerBase
 {[HttpGet("")]
     public IActionResult Get()

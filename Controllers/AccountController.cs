@@ -23,13 +23,17 @@ public class AccountController(AccountService accountService): ControllerBase
             return Conflict(new { erros = create.Errors });
         return Ok(create.Data);
     }
-    [HttpPost("v1/accounts/login")]
+    [HttpPost("v1/account/login")]
     public async Task<IActionResult> Login(
-        [FromServices]TokenService tokenService)
+        [FromBody]LoginViewModel login)
     {
-        var token = tokenService.GenerateToken(null);
+        var token =
+            await accountService.Login(login);
         return Ok(token);
 
     }
    
 }
+
+
+
